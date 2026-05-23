@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang = "pt-BR">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "vieport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastrar Conta</title>
+
+        <link rel="stylesheet" href="css/cadastro.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Cadastrar uma conta</h1>
+
+            <p class="subtitle">
+                Bem vindo viajante, preciso de algumas informações para que você possa se tornar um Mestre.
+            </p>
+        
+            <hr>
+
+            <form id="registerForm">
+
+                <div class="formGroup">
+                    <label>Nome de Usuário</label>
+                    <input type="text" id = "userName" placeholder="Nome">
+                    <div class="errorMessage" id="userNameError"></div>
+                </div>
+            
+                <div class="formGroup">
+                    <label>Email</label>
+                    <input type="text" id="userEmail" placeholder="Millena@poke.com">
+                    <div class="errorMessage" id="userEmailError"></div>
+                </div>
+
+                <div class="formGroup">
+                    <label>Senha</label>
+                    <input type="password" id="password">
+                </div>
+                
+                <div class="formGroup">
+                    <label>Confirme sua senha</label>
+                    <input type="password" id="confPassword">
+                </div>
+
+                <button type="submit">
+                    Criar Conta
+                </button>
+
+            </form>
+        </div>
+        <script src="js/Script.js"></script>
+    </body>
+</html>

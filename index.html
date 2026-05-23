@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grimório do Mestre</title>
+    <link rel="stylesheet" href="Css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Grimório do Mestre</h1>
+
+            <ul class="nav-links">
+                <li><a href="#">Sistemas</a></li>
+                <li><a href="#">FeedBack</a></li>
+            </ul>
+            <div class="buttons" id="guest-buttons">
+                <a href="login.html">
+                    <button class="login-btn">
+                        Login
+                    </button>
+                </a>
+                
+                <a href="Cadastro.html">
+                    <button class="register-btn">
+                        Cadastrar
+                    </button>
+                </a>
+            </div>
+
+
+            <div class="user-menu hidden" id="user-menu">
+
+                <button class="session-btn">
+                    Criar Sessão
+                </button>
+
+                <button class="character-btn">
+                    Personagens
+                </button>
+
+                <button class="logout-btn">
+                    Logout
+                </button>
+
+            </div>
+        </nav>
+
+    </header>
+    <section class="systems">
+
+        <h2>Sistemas Compatíveis</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                D&D 5e
+            </div>
+
+            <div class="card">
+                Call of Cthulhu
+            </div>
+
+            <div class="card">
+                Pathfinder
+            </div>
+
+            <div class="card">
+                Cyberpunk RED
+            </div>
+
+        </div>
+
+    </section>
+    <section class="feedback">
+
+        <h2>Feedback dos Mestres</h2>
+
+
+        <div class="feedback-form">
+
+            <input type="text" id="nameInput" placeholder="Seu nome">
+
+            <textarea id="feedbackInput" placeholder="Digite seu feedback..."></textarea>
+
+            <button id="sendFeedback">
+                Enviar Feedback
+            </button>
+
+        </div>
+
+
+        <div id="feedbackList">
+
+            <div class="feedback-card">
+
+                <p>
+                    “O Grimório do Mestre facilitou MUITO minhas campanhas.”
+                </p>
+
+                <span>- João, Mestre de RPG</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+</body>
+
+</html>
