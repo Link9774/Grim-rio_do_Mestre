@@ -13,7 +13,77 @@
 </head>
 
 <body>
+    <header class="navbar">
+        <div class="user-info">
+            <h2 id="userName">
+
+            </h2>
+        </div>
     
+        <div class="last-session">
+            <p>
+                Última sessão:
+                <span id="lastSession"></span>
+                    
+            </p>
+        </div>
+    
+    </header>
+
+    <section class="menu">
+
+        <button id="showSessions">
+            Suas Sessõess
+        </button>
+
+        <button id="showCreate">
+            Criar Nova Sessão
+        </button>
+    
+    </section>
+
+    <section id="sessionsSection">
+
+        <div id="sessionsList"></div>
+
+        
+
+    </section>
+
+    <section id="createSection" class="hidden">
+
+        <div class="create-box">
+
+            <h2>Criar Nova Sessão</h2>
+
+            <input
+                type="text"
+                id="sessionName"
+                placeholder="Nome da sessão"
+            >
+
+
+            <select id="systemSelect">
+
+                <option>D&D 5e</option>
+
+                <option>Tormenta 20</option>
+
+                <option>Call of Cthulhu</option>
+
+                <option>Cyberpunk RED</option>
+
+            </select>
+    
+            <button id="createSessionBtn">
+                Criar Sessão
+            </button>
+
+        </div>
+
+    </section>
+    <script src="Scripts/dashboard.js"></script>
+
 </body>
 
 </html>

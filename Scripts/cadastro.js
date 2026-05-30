@@ -4,7 +4,18 @@ form.addEventListener("submit", function(event){
     
     event.preventDefault();
 
-    const userName = document.getElementById("userName").value;
+    //const userName = document.getElementById("userName").value;
+    const savedUser = localStorage.getItem("userName");
+
+    if(savedUser){
+
+        userNameText.innerHTML = savedUser;
+
+    }else{
+
+        userNameText.innerHTML = "Mestre";
+    }
+    
     const userEmail = document.getElementById("userEmail").value;
     const password = document.getElementById("password").value;
     const confPassword = document.getElementById("confPassword").value;
