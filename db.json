@@ -1,0 +1,23 @@
+{
+  "mestres": [
+    {
+      "userName": "",
+      "userEmail": "",
+      "password": "",
+      "id": ""
+    },
+    {
+      "userName": "Link",
+      "userEmail": "link@hotmail.com",
+      "password": "Link123",
+      "id": "r9eHCrDQ6aM"
+    },
+    {
+      "userName": "JohnKane",
+      "userEmail": "john@gmail.com",
+      "password": "John@123",
+      "id": "yhTLFQdmVi8"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
