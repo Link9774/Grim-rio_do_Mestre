@@ -6,12 +6,29 @@ const createSection = document.getElementById("createSection");
 const createSessionBtn = document.getElementById("createSessionBtn");
 const sessionsList = document.getElementById("sessionsList");
 const lastSession = document.getElementById("lastSession");
-
+const loggedMaster = JSON.parse(
+    localStorage.getItem("loggedMaster")
+);
+console.log(loggedMaster);
+loadSessions();
 console.log(showSessions);
 console.log(showCreate);
 console.log(createSection);
 
-let sessions =[];
+async function loadSessions() {
+    
+    const response = await fetch(
+        `http://localhost:3000/sessions?masterId=${loggedMaster.id}`
+    );
+    sessions = await response.json();
+
+    renderSessions();
+}
+
+
+
+
+
 
 showSessions.addEventListener("click", () => {
 
@@ -30,7 +47,7 @@ showCreate.addEventListener("click", () => {
 
 });
 
-createSessionBtn.addEventListener("click", () =>{
+createSessionBtn.addEventListener("click", async () =>{
     const name = document.getElementById("sessionName").value;
     const system = document.getElementById("systemSelect").value;
 
@@ -43,12 +60,19 @@ createSessionBtn.addEventListener("click", () =>{
     const session = {
 
         name,
-        system
+        system,
+        masterId: loggedMaster.id 
     };
 
-    sessions.unshift(session);
+    await fetch("http://localhost:3000/sessions", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(session)
+    });
 
-    renderSessions();
+    await loadSessions();
 
     lastSession.innerHTML = `${name} / ${system}`;
 });

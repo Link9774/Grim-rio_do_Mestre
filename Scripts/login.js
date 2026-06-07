@@ -15,14 +15,17 @@ console.log(loginEmail.value);
 console.log(loginPassword.value);
     
     const findMaster = mestres.find(
-        mestre => mestre.userEmail === loginEmail.value && mestre.password === loginPassword.value
+        mestre => mestre.userEmail === email && mestre.password === password
     );
     if(findMaster){
+        
+        localStorage.setItem(
+            "loggedMaster",
+            JSON.stringify(findMaster)
+        );
         console.log("Login realizado");
+        
         window.location.href = "dashboard.html";
-    }else{
-    
-        console.log("Email ou senha incorretos");
     }
 
 });
