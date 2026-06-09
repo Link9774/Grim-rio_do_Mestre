@@ -76,7 +76,8 @@ form.addEventListener("submit", function(event){
          .then(()=>{
             alert("Usuário cadastrado");
         }); 
+     window.location.href = "login.html";
     }
-    window.location.href = "login.html";
+   
 
 })

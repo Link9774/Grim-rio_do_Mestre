@@ -1,12 +1,6 @@
 {
   "mestres": [
     {
-      "userName": "",
-      "userEmail": "",
-      "password": "",
-      "id": ""
-    },
-    {
       "userName": "Link",
       "userEmail": "link@hotmail.com",
       "password": "Link123",
@@ -27,23 +21,41 @@
   ],
   "sessions": [
     {
-      "idS": "",
       "title": "",
       "system": "",
       "masterId": "",
       "id": "iq8Z_ddNIYk"
     },
     {
-      "name": "Ruina do Rei",
-      "system": "D&D 5e",
-      "masterId": "r9eHCrDQ6aM",
-      "id": "ceNDXkZ2QbA"
-    },
-    {
       "name": "Cinzas do Ultimo Sol",
       "system": "D&D 5e",
       "masterId": "CuNpYbQp--0",
       "id": "gyH3__9si-M"
+    },
+    {
+      "name": "Nevoa Densa",
+      "system": "Call of Cthulhu",
+      "masterId": "r9eHCrDQ6aM",
+      "id": "JME_kScPJRM"
+    },
+    {
+      "name": "Matrix CountDown",
+      "system": "Cyberpunk RED",
+      "masterId": "r9eHCrDQ6aM",
+      "id": "uX6cd4Wcq9A"
+    }
+  ],
+  "char": [
+    {
+      "type": "",
+      "name": "",
+      "class": "",
+      "hp": "",
+      "maxHp": "",
+      "snity": "",
+      "snityMax": "",
+      "sessionId": "",
+      "id": ""
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessão</title>
+
+    <link rel="stylesheet" href="Css/session.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="sessionTitle">
+            Carregando sessão...
+        </h1>
+
+        <p id="systemName">
+            Sistema
+        </p>
+    </header>
+
+    <main>
+        <section class="session-info">
+            <h2>Informações da Campanha</h2>
+
+            <button id="editSessionBtn">
+                Editar Sessão
+            </button>
+
+            <button id="deleteSessionBtn">
+                Excluir Sessão
+            </button>
+        </section>
+
+        <section class="char-section">
+
+            <div class="char-header">
+
+                <h2>Personagens</h2>
+
+                <button id="createCharBtn">
+                    +Criar Personagem
+                </button>
+
+            </div>
+            <h3>Jogadores</h3>
+            <div id="playersList"></div>
+            
+            <h3>Monstros</h3>
+            <div id="monstersList"></div>
+            
+            <h3>NPCs</h3>
+            <div id="npcList"></div>
+        </section>  
+
+</main>
+    <script src="Scripts/session.js"></script>
+
+</body>
+
+
+</html>

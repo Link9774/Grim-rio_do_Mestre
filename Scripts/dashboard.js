@@ -27,9 +27,6 @@ async function loadSessions() {
 
 
 
-
-
-
 showSessions.addEventListener("click", () => {
 
     sessionsSection.classList.remove("hidden");
@@ -75,7 +72,7 @@ createSessionBtn.addEventListener("click", async () =>{
     await loadSessions();
 
     lastSession.innerHTML = `${name} / ${system}`;
-});
+}); 
 
 function renderSessions(){
 
@@ -94,6 +91,9 @@ function renderSessions(){
             <p>${session.system}</p>
 
         `;
+        card.addEventListener("click", () =>{
+            window.location.href = `session.html?id=${session.id}`;
+        });
 
         sessionsList.appendChild(card);
 
