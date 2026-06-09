@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bgcolor: #1e1e1e;
+    --cardcolor: #2b2b2b;
+    --maincolor: white;
+    --textcolor: white;
+}
+
+
+
+body{
+    min-height: 100vh;
+    background: var(--bgcolor);
+    color: var(--textcolor);
+    font-family: Arial, Helvetica, sans-serif;
+}
