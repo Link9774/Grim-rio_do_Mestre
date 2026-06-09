@@ -100,3 +100,22 @@ body.cyberpunk{
     --maincolor: #ff003c;
     --textcolor: white;
 }
+
+.hidden{
+    display: none;
+}
+
+#charForm{
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+}
+
+#charForm input,
+#charForm select{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+}

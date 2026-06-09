@@ -76,10 +76,17 @@ function renderChar(chars){
 
         card.classList.add("char-card");
 
+        let sanityHtml = "";
+        if(char.sanityMax > 0){
+            sanityHtml = `<p>SAN: ${char.sanity}/${char.sanityMax}</p>`;
+        }
+
         card.innerHTML = `
             <h4>${char.name}</h4>
             <p>HP: ${char.hp}/${char.maxHp}</p>
-        `;
+            <p>Classe: ${char.class}
+            ${sanityHtml}
+            `;
 
         switch(char.type){
             case "player":
@@ -117,3 +124,103 @@ deleteSessionBtn.addEventListener("click", async () =>{
     );
     window.location.href = "dashboard.html";
 });
+
+const createCharBtn= document.getElementById("createCharBtn");
+const charForm = document.getElementById("charForm");
+
+createCharBtn.addEventListener("click", () =>{
+    charForm.classList.toggle("hidden");
+});
+
+const charType = document.getElementById("charType");
+const formFields = document.getElementById("formFields");
+
+charType.addEventListener("change", () =>{
+
+    switch(charType.value){
+
+        case "player":
+            renderPlayerForm();
+            break;
+
+        case "monster":
+            renderMonsterForm();
+            break;
+
+        case "npc":
+            renderNpcForm();
+            break;
+    }
+});
+
+function renderPlayerForm(){
+
+    let sanityField = "";
+
+    if(
+        currentSession.system === "Call of Cthulhu"
+    ){
+        sanityField = `
+        <input
+        id="sanityMax"
+        type="number"
+        placeholder="Sanidade Máxima">
+        `;
+    }
+
+formFields.innerHTML = `
+<input
+        id="charName"
+        placeholder="Nome">
+
+        <input
+        id="charClass"
+        placeholder="Classe">
+
+        <input
+        id="maxHp"
+        type="number"
+        placeholder="HP Máximo">
+
+        ${sanityField}
+
+        <button id="saveCharBtn">
+            Salvar
+        </button>
+`;
+
+document.getElementById("saveCharBtn").addEventListener("click", savePlayer)
+}
+
+async function savePlayer(){
+    const name = document.getElementById("charName").value;
+    const playerClass = document.getElementById("charClass").value;
+    const maxHp = document.getElementById("maxHp").value;
+    const sanityInput = document.getElementById("sanityMax");
+
+    let sanityMax = 0;
+
+    if(sanityInput){
+        sanityMax = Number(sanityInput.value);
+    }
+    const player = {
+        type: "player",
+        name: name,
+        class: playerClass,
+        hp: maxHp,
+        maxHp: maxHp,
+        sanity: sanityMax,
+        sanityMax: sanityMax,
+        sessionId: sessionId
+    };
+    await fetch(
+        "http://localhost:3000/char",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(player)
+        }
+    );
+    loadChar();
+}

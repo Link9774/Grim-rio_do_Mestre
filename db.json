@@ -43,6 +43,12 @@
       "system": "Cyberpunk RED",
       "masterId": "r9eHCrDQ6aM",
       "id": "uX6cd4Wcq9A"
+    },
+    {
+      "name": "Ruina do Rei",
+      "system": "D&D 5e",
+      "masterId": "r9eHCrDQ6aM",
+      "id": "_r9PCNH_E-Y"
     }
   ],
   "char": [
@@ -50,12 +56,46 @@
       "type": "",
       "name": "",
       "class": "",
+      "level": "",
       "hp": "",
       "maxHp": "",
       "snity": "",
       "snityMax": "",
       "sessionId": "",
       "id": ""
+    },
+    {
+      "type": "player",
+      "name": "Marco Aurelio",
+      "class": "Guerreiro",
+      "hp": "80",
+      "maxHp": "80",
+      "sanity": 0,
+      "sanityMax": 0,
+      "sessionId": "_r9PCNH_E-Y",
+      "id": "inkGBQLu550"
+    },
+    {
+      "type": "player",
+      "name": "Noa",
+      "class": "Biologo",
+      "hp": "16",
+      "maxHp": "16",
+      "sanity": 35,
+      "sanityMax": 35,
+      "sessionId": "JME_kScPJRM",
+      "id": "9ZTqDQI6n08"
+    },
+    {
+      "type": "player",
+      "name": "Shadow",
+      "class": "Ladino",
+      "hp": "38",
+      "maxHp": "38",
+      "sanity": 0,
+      "sanityMax": 0,
+      "sessionId": "_r9PCNH_E-Y",
+      "id": "-z5qz9V6PXk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
