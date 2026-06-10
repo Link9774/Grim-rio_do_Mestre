@@ -81,10 +81,16 @@ function renderChar(chars){
             sanityHtml = `<p>SAN: ${char.sanity}/${char.sanityMax}</p>`;
         }
 
+        let roleText = "Classe";
+        
+        if(char.type === "monster"){
+            roleText = "Tipo";
+        }
+        
         card.innerHTML = `
             <h4>${char.name}</h4>
             <p>HP: ${char.hp}/${char.maxHp}</p>
-            <p>Classe: ${char.class}
+            <p>${roleText}: ${char.class}<p>
             ${sanityHtml}
             `;
 
@@ -116,6 +122,21 @@ deleteSessionBtn.addEventListener("click", async () =>{
     if(!confirmDelete){
         return;
     }
+    
+    const response = await fetch(
+        `http://localhost:3000/char?sessionId=${sessionId}`
+    );
+    
+    const chars = await response.json();
+
+    for(const char of chars){
+        await fetch(
+            `http://localhost:3000/char/${char.id}`,{
+                method: "DELETE"
+            }
+        );
+    }
+
     await fetch(
         `http://localhost:3000/sessions/${sessionId}`,
         {
@@ -222,5 +243,59 @@ async function savePlayer(){
             body: JSON.stringify(player)
         }
     );
-    loadChar();
+   await loadChar();
+   formFields.innerHTML = ""; 
+   charName.value = "";
+
+}
+
+function renderMonsterForm(){
+    formFields.innerHTML = `
+    <input
+    id="charName"
+        placeholder="Nome">
+
+        <input
+        id="charClass"
+        placeholder="Tipo">
+
+        <input
+        id="maxHp"
+        type="number"
+        placeholder="HP Máximo">
+    
+        <button id="saveCharBtn">
+            Salvar
+        </button>
+    
+        `;
+    document.getElementById("saveCharBtn").addEventListener("click", saveMonster)
+}
+
+async function saveMonster(){
+    const name = document.getElementById("charName").value;
+    const monsterType = document.getElementById("charClass").value;
+    const maxHp = document.getElementById("maxHp").value;
+
+    const monster = {
+        type: "monster",
+        name: name,
+        class: monsterType,
+        hp: maxHp,
+        maxHp: maxHp,
+        sessionId: sessionId
+    };
+    await fetch(
+        "http://localhost:3000/char", {
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(monster)
+        }
+    );
+    await loadChar();
+    formFields.innerHTML = "";
+    charType.value = "";
+
 }

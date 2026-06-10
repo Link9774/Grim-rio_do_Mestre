@@ -39,12 +39,6 @@
       "id": "JME_kScPJRM"
     },
     {
-      "name": "Matrix CountDown",
-      "system": "Cyberpunk RED",
-      "masterId": "r9eHCrDQ6aM",
-      "id": "uX6cd4Wcq9A"
-    },
-    {
       "name": "Ruina do Rei",
       "system": "D&D 5e",
       "masterId": "r9eHCrDQ6aM",
@@ -96,6 +90,35 @@
       "sanityMax": 0,
       "sessionId": "_r9PCNH_E-Y",
       "id": "-z5qz9V6PXk"
+    },
+    {
+      "type": "monster",
+      "name": "Zumbi",
+      "class": "Morto-vivo",
+      "hp": "26",
+      "maxHp": "26",
+      "sessionId": "_r9PCNH_E-Y",
+      "id": "mwaZtgjX57o"
+    },
+    {
+      "type": "player",
+      "name": "Hector",
+      "class": "Artífice",
+      "hp": "46",
+      "maxHp": "46",
+      "sanity": 0,
+      "sanityMax": 0,
+      "sessionId": "_r9PCNH_E-Y",
+      "id": "s6BMqMXuALY"
+    },
+    {
+      "type": "monster",
+      "name": "Arauto Necromante",
+      "class": "Boss/Morto-vivo",
+      "hp": "500",
+      "maxHp": "500",
+      "sessionId": "_r9PCNH_E-Y",
+      "id": "glDEFLD9bK0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
