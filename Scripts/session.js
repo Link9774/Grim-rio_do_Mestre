@@ -245,7 +245,7 @@ async function savePlayer(){
     );
    await loadChar();
    formFields.innerHTML = ""; 
-   charName.value = "";
+   charType.value = "";
 
 }
 
@@ -298,4 +298,79 @@ async function saveMonster(){
     formFields.innerHTML = "";
     charType.value = "";
 
+}
+
+function renderNpcForm(){
+    let sanityField = "";
+
+    if(
+        currentSession.system === "Call of Cthulhu"
+    ){
+        sanityField =`
+        <input
+        id="sanityMax"
+        type ="number"
+        placeholder ="Sanidade Máxima">
+        `;
+    }
+
+    formFields.innerHTML =`
+    <input
+        id = "charName"
+        placeholder = "Nome">
+
+        <input
+        id = "charClass"
+        placeholder = "Classe">
+
+        <input
+        id ="maxHp"
+        type ="number"
+        placeholder ="HP Máximo">
+    
+        ${sanityField}
+
+        <button id = "saveCharBtn">
+            Salvar
+        </button>    
+    
+    `;
+
+    document.getElementById("saveCharBtn").addEventListener("click", saveNpc)
+}
+
+async function saveNpc() {
+    const name = document.getElementById("charName").value;
+    const npcClass = document.getElementById("charClass").value;
+    const maxHp = document.getElementById("maxHp").value;
+    const sanityInput = document.getElementById("sanityMax");
+
+    let sanityMax = 0;
+
+    if(sanityInput){
+        sanityMax = Number(sanityInput.value);
+    }
+
+    const npc = {
+        type: "npc",
+        name: name,
+        class: npcClass,
+        hp: maxHp,
+        maxHp: maxHp,
+        sanity: sanityMax,
+        sanityMax: sanityMax,
+        sessionId: sessionId
+    };
+    await fetch(
+        "http://localhost:3000/char",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(npc)
+        }
+    );
+    await loadChar();
+    formFields.innerHTML = "";
+    charType.value = "";
 }

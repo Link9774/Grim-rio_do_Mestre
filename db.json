@@ -119,6 +119,37 @@
       "maxHp": "500",
       "sessionId": "_r9PCNH_E-Y",
       "id": "glDEFLD9bK0"
+    },
+    {
+      "type": "monster",
+      "name": "Ocultista",
+      "class": "Humano",
+      "hp": "12",
+      "maxHp": "12",
+      "sessionId": "JME_kScPJRM",
+      "id": "TFI3l0EM0lY"
+    },
+    {
+      "type": "npc",
+      "name": "Vinny",
+      "class": "Hacker",
+      "hp": "14",
+      "maxHp": "14",
+      "sanity": 25,
+      "sanityMax": 25,
+      "sessionId": "JME_kScPJRM",
+      "id": "1c-3HQuoWd0"
+    },
+    {
+      "type": "npc",
+      "name": "Bruno",
+      "class": "Lider da Resistencia",
+      "hp": "250",
+      "maxHp": "250",
+      "sanity": 0,
+      "sanityMax": 0,
+      "sessionId": "_r9PCNH_E-Y",
+      "id": "fRgGu0dQSJQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
