@@ -1,5 +1,6 @@
 console.log("sessão carregada");
 
+const editSessionBtn = document.getElementById("editSessionBtn");
 const sessionTitle = document.getElementById("sessionTitle");
 const systemName = document.getElementById("systemName");
 
@@ -11,6 +12,14 @@ const params = new URLSearchParams(window.location.search);
 const sessionId = params.get("id");
 
 let currentSession;
+
+let editMode = false;
+
+editSessionBtn.addEventListener("click", () =>{
+    editMode = !editMode;
+    loadChar();
+});
+
 
 loadSession();
 
@@ -59,7 +68,7 @@ function applyTheme(system){
 
 async function loadChar() {
     const response = await fetch(
-        `http://localhost:3000/char?sessionId=${sessionId}`
+        `http://localhost:3000/char?sessionId=${sessionId}`,
     );
     const chars = await response.json();
 
@@ -86,12 +95,46 @@ function renderChar(chars){
         if(char.type === "monster"){
             roleText = "Tipo";
         }
-        
+        let editButtons = "";
+
+        if(editMode){
+            editButtons = `
+                <button onclick ="deleteChar('${char.id}')">
+                    Excluir
+                </button>
+            `;
+        }
+
         card.innerHTML = `
             <h4>${char.name}</h4>
             <p>HP: ${char.hp}/${char.maxHp}</p>
-            <p>${roleText}: ${char.class}<p>
+            <p>${roleText}: ${char.class}</p>
             ${sanityHtml}
+            <p>Status: ${char.status || "vivo"}</p>
+            ${editButtons}
+            <button onclick="changeHp('${char.id}', -10)">
+                -10
+            </button>
+
+            <button onclick="changeHp('${char.id}', -5)">
+                -5
+            </button>
+
+            <button onclick="changeHp('${char.id}', -1)">
+                -1
+            </button>
+
+            <button onclick="changeHp('${char.id}', 1)">
+                +1
+            </button>
+
+            <button onclick="changeHp('${char.id}', 5)">
+                +5
+            </button>
+
+            <button onclick="changeHp('${char.id}', 10)">
+                +10
+            </button>
             `;
 
         switch(char.type){
@@ -106,11 +149,9 @@ function renderChar(chars){
                 case "npc":
                 npcList.appendChild(card);
                 break;
-        
+            
          }
     });
-
-
 }
 
 const deleteSessionBtn = document.getElementById("deleteSessionBtn");
@@ -373,4 +414,66 @@ async function saveNpc() {
     await loadChar();
     formFields.innerHTML = "";
     charType.value = "";
+}
+async function deleteChar(charId){
+    
+    const confirmDelete = confirm(
+        "Deseja excluir este personagem ?"
+    );
+
+    if(!confirmDelete){
+        return;
+    }
+    await fetch(
+         `http://localhost:3000/char/${charId}`,{
+            method: "DELETE"
+         }
+    );
+    loadChar();
+}
+
+async function changeHp(charId, amount){
+    
+    const response = await fetch (
+        `http://localhost:3000/char/${charId}`,
+    );
+    const char = await response.json();
+
+    let newHp = Number(char.hp) + amount;
+
+    if(newHp > char.maxHp){
+        newHp = char.maxHp;
+    }
+
+    if(newHp < 0){
+        newHp = 0; 
+    }
+    let status = "vivo";
+
+    if(newHp <= 0){
+        if(char.type === "monster"){
+            status = "Morto";
+        }
+        if(char.type === "player"){
+            status = "Morrendo"
+        }
+        if(char.type === "npc"){
+            status = "Morrendo"
+        } 
+    }
+    
+
+    await fetch(
+        `http://localhost:3000/char/${charId}`,{
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                hp: newHp,
+                status: status
+            })
+        }
+    );
+    await loadChar();
 }

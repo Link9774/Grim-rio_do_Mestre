@@ -55,6 +55,7 @@
       "maxHp": "",
       "snity": "",
       "snityMax": "",
+      "status": "",
       "sessionId": "",
       "id": ""
     },
@@ -66,6 +67,7 @@
       "maxHp": "80",
       "sanity": 0,
       "sanityMax": 0,
+      "status": "vivo",
       "sessionId": "_r9PCNH_E-Y",
       "id": "inkGBQLu550"
     },
@@ -77,6 +79,7 @@
       "maxHp": "16",
       "sanity": 35,
       "sanityMax": 35,
+      "status": "vivo",
       "sessionId": "JME_kScPJRM",
       "id": "9ZTqDQI6n08"
     },
@@ -84,21 +87,13 @@
       "type": "player",
       "name": "Shadow",
       "class": "Ladino",
-      "hp": "38",
+      "hp": 38,
       "maxHp": "38",
       "sanity": 0,
       "sanityMax": 0,
+      "status": "vivo",
       "sessionId": "_r9PCNH_E-Y",
       "id": "-z5qz9V6PXk"
-    },
-    {
-      "type": "monster",
-      "name": "Zumbi",
-      "class": "Morto-vivo",
-      "hp": "26",
-      "maxHp": "26",
-      "sessionId": "_r9PCNH_E-Y",
-      "id": "mwaZtgjX57o"
     },
     {
       "type": "player",
@@ -108,6 +103,7 @@
       "maxHp": "46",
       "sanity": 0,
       "sanityMax": 0,
+      "status": "vivo",
       "sessionId": "_r9PCNH_E-Y",
       "id": "s6BMqMXuALY"
     },
@@ -117,6 +113,7 @@
       "class": "Boss/Morto-vivo",
       "hp": "500",
       "maxHp": "500",
+      "status": "vivo",
       "sessionId": "_r9PCNH_E-Y",
       "id": "glDEFLD9bK0"
     },
@@ -126,6 +123,7 @@
       "class": "Humano",
       "hp": "12",
       "maxHp": "12",
+      "status": "vivo",
       "sessionId": "JME_kScPJRM",
       "id": "TFI3l0EM0lY"
     },
@@ -137,6 +135,7 @@
       "maxHp": "14",
       "sanity": 25,
       "sanityMax": 25,
+      "status": "vivo",
       "sessionId": "JME_kScPJRM",
       "id": "1c-3HQuoWd0"
     },
@@ -148,8 +147,31 @@
       "maxHp": "250",
       "sanity": 0,
       "sanityMax": 0,
+      "status": "vivo",
       "sessionId": "_r9PCNH_E-Y",
       "id": "fRgGu0dQSJQ"
+    },
+    {
+      "type": "monster",
+      "name": "Zumbi ",
+      "class": "Morto-vivo",
+      "hp": "12",
+      "maxHp": "12",
+      "sessionId": "_r9PCNH_E-Y",
+      "id": "6monsGdy3k8",
+      "status": "vivo"
+    },
+    {
+      "type": "npc",
+      "name": "Marcos Rubi",
+      "class": "Patrulheiro",
+      "hp": "26",
+      "maxHp": "26",
+      "sanity": 0,
+      "sanityMax": 0,
+      "sessionId": "_r9PCNH_E-Y",
+      "id": "KBP0S7KqABI",
+      "status": "vivo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
