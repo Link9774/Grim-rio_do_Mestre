@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bgcolor: #2a0c0c;
+    --cardcolor: #411212;
+    --maincolor: #8b0000;
+    --textcolor: white;
+}
+
+body{
+    background: var(--bgcolor);
+    color: var(--textcolor);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+header{
+    background: var(--maincolor);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1{
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+nav{
+    background: var(--cardcolor);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+nav a:hover{
+    color: #ffd700;
+}
+
+main{
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+section{
+    background: var(--cardcolor);
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 6px solid var(--maincolor);
+}
+
+section h2{
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+article{
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+}
+
+article h3{
+    color: #ffcc66;
+    margin-bottom: 10px;
+}
+
+p{
+    margin-bottom: 10px;
+}
+
+ul{
+    padding-left: 20px;
+}
+
+li{
+    margin-bottom: 5px;
+}
+
+strong{
+    color: #ffd700;
+}
+
+img{
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 3px solid var(--maincolor);
+}
+
+footer{
+    background: var(--maincolor);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+a[href="index.html"]{
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 12px 20px;
+    background: var(--maincolor);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+a[href="index.html"]:hover{
+    opacity: 0.85;
+}
+
+html{
+    scroll-behavior: smooth;
+}

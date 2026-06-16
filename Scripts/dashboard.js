@@ -93,8 +93,10 @@ function renderSessions(){
         `;
         card.addEventListener("click", () =>{
             window.location.href = `session.html?id=${session.id}`;
+            
+            formFields.innerHTML = "";
         });
-
+        
         sessionsList.appendChild(card);
 
     });

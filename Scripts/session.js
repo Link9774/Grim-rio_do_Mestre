@@ -106,35 +106,37 @@ function renderChar(chars){
         }
 
         card.innerHTML = `
+            <div class="hpButton"> 
             <h4>${char.name}</h4>
             <p>HP: ${char.hp}/${char.maxHp}</p>
             <p>${roleText}: ${char.class}</p>
             ${sanityHtml}
             <p>Status: ${char.status || "vivo"}</p>
             ${editButtons}
-            <button onclick="changeHp('${char.id}', -10)">
+            <button class="hp-btn" onclick="changeHp('${char.id}', -10)">
                 -10
             </button>
 
-            <button onclick="changeHp('${char.id}', -5)">
+            <button class="hp-btn" onclick="changeHp('${char.id}', -5)">
                 -5
             </button>
 
-            <button onclick="changeHp('${char.id}', -1)">
+            <button class="hp-btn" onclick="changeHp('${char.id}', -1)">
                 -1
             </button>
 
-            <button onclick="changeHp('${char.id}', 1)">
+            <button class="hp-btn" onclick="changeHp('${char.id}', 1)">
                 +1
             </button>
 
-            <button onclick="changeHp('${char.id}', 5)">
+            <button class="hp-btn" onclick="changeHp('${char.id}', 5)">
                 +5
             </button>
 
-            <button onclick="changeHp('${char.id}', 10)">
+            <button class="hp-btn" onclick="changeHp('${char.id}', 10)">
                 +10
             </button>
+            </div>
             `;
 
         switch(char.type){

@@ -10,9 +10,9 @@ loginForm.addEventListener("submit", async (event) => {
     const response = await fetch("http://localhost:3000/mestres");
     const mestres = await response.json();
 
-    console.log(mestres);
-console.log(loginEmail.value);
-console.log(loginPassword.value);
+  //  console.log(mestres);
+//console.log(loginEmail.value);
+//console.log(loginPassword.value);
     
     const findMaster = mestres.find(
         mestre => mestre.userEmail === email && mestre.password === password
@@ -26,6 +26,9 @@ console.log(loginPassword.value);
         console.log("Login realizado");
         
         window.location.href = "dashboard.html";
+    
     }
-
+    if(!findMaster){
+        alert("Senha ou Email estão incorretos");
+    }
 });

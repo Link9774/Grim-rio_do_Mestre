@@ -17,6 +17,7 @@ body{
     background: var(--bgcolor);
     color: var(--textcolor);
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 header{
@@ -39,6 +40,15 @@ main{
     border-radius: 10px;
     margin-bottom: 25px;
 }
+.hp-btn{
+    background-color: var(--maincolor);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
 
 .session-info h2{
     margin-bottom: 15px;
