@@ -131,7 +131,7 @@
       "type": "npc",
       "name": "Vinny",
       "class": "Hacker",
-      "hp": "14",
+      "hp": 14,
       "maxHp": "14",
       "sanity": 25,
       "sanityMax": 25,

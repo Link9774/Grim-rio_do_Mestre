@@ -89,6 +89,57 @@ function renderChar(chars){
         if(char.sanityMax > 0){
             sanityHtml = `<p>SAN: ${char.sanity}/${char.sanityMax}</p>`;
         }
+        let sanityButtons = "";
+        if (char.sanityMax > 0) {
+
+    sanityButtons = `
+        <button class="hp-btn"
+            onclick="changeSanity('${char.id}', -1)">
+            SAN -1
+        </button>
+
+        <button class="hp-btn"
+            onclick="changeSanity('${char.id}', -5)">
+            SAN -5
+        </button>
+
+        <button class="hp-btn"
+            onclick="changeSanity('${char.id}', -10)">
+            SAN -10
+        </button>
+
+        <button class="hp-btn"
+            onclick="changeSanity('${char.id}', 1)">
+            SAN +1
+        </button>
+
+        <button class="hp-btn"
+            onclick="changeSanity('${char.id}', 5)">
+            SAN +5
+        </button>
+
+        <button class="hp-btn"
+            onclick="changeSanity('${char.id}', 10)">
+            SAN +10
+        </button>
+
+        <input
+            type="number"
+            id="customSan${char.id}"
+            placeholder="Valor"
+            class="custom-input">
+
+        <button class="hp-btn"  
+        onclick="customSanity('${char.id}', true)">
+            Recuperar
+        </button>
+
+        <button class="hp-btn"
+        onclick="customSanity('${char.id}', false)">
+            Perder
+        </button>
+    `;
+}
 
         let roleText = "Classe";
         
@@ -136,7 +187,25 @@ function renderChar(chars){
             <button class="hp-btn" onclick="changeHp('${char.id}', 10)">
                 +10
             </button>
+            <input
+                type="number"
+                id="customHp${char.id}"
+                placeholder="Valor"
+                class="custom-input">
+
+            <button class="hp-btn"
+                onclick="customHp('${char.id}', true)">
+                Curar
+            </button>
+
+            <button class="hp-btn"
+                onclick="customHp('${char.id}', false)">
+                Dano
+            </button>
+        
             </div>
+            ${sanityButtons}
+
             `;
 
         switch(char.type){
@@ -479,3 +548,65 @@ async function changeHp(charId, amount){
     );
     await loadChar();
 }
+
+async function customHp(charId, heal) {
+    const value = Number(document.getElementById(`customHp${charId}`).value);
+
+    if(value <=0 || isNaN(value)){
+        alert("Digite um valor válido.");
+        return;
+    }
+
+    if(heal){
+        await changeHp(charId, value);
+    }else{
+        await changeHp(charId, -value);
+    }
+}
+
+async function changeSanity(charId, amount) {
+    const response = await fetch(
+        `http://localhost:3000/char/${charId}`
+    );
+    const char = await response.json();
+    let newSan = Number(char.sanity) + amount;
+
+    if(newSan > char.sanityMax){
+        newSan = char.sanityMax;
+    }
+    if(newSan < 0){
+        newSan = 0;
+    }
+    await fetch(
+        `http://localhost:3000/char/${charId}`,
+        {
+            method:"PATCH",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                sanity:newSan
+            })
+        }
+    );
+    loadChar();
+}
+async function customSanity(charId, recover){
+
+    const value = Number(
+        document.getElementById(`customSan${charId}`).value
+    );
+
+    if(value <= 0 || isNaN(value)){
+        alert("Digite um valor válido.");
+        return;
+    }
+
+    if(recover){
+        await changeSanity(charId, value);
+    }
+    else{
+        await changeSanity(charId, -value);
+    }
+}
+
